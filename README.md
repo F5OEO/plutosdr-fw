@@ -10,7 +10,7 @@ Latest binary Release : [![GitHub release](https://img.shields.io/github/release
  sudo apt-get install git build-essential fakeroot libncurses5-dev libssl-dev ccache
  sudo apt-get install dfu-util u-boot-tools device-tree-compiler libssl1.0-dev mtools
  sudo apt-get install bc python cpio zip unzip rsync file wget
- git clone --recursive https://github.com/analogdevicesinc/plutosdr-fw.git
+ git clone --recursive https://github.com/F5OEO/plutosdr-fw.git
  cd plutosdr-fw
  export CROSS_COMPILE=arm-linux-gnueabihf-
  export PATH=$PATH:/opt/Xilinx/SDK/2018.2/gnu/aarch32/lin/gcc-arm-linux-gnueabi/bin
