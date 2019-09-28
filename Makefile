@@ -1,6 +1,6 @@
 #PATH=$PATH:/opt/Xilinx/SDK/2015.4/gnu/arm/lin/bin
 
-VIVADO_VERSION ?= 2018.2
+VIVADO_VERSION ?= 2018.3
 CROSS_COMPILE ?= arm-linux-gnueabihf-
 
 HAVE_CROSS=$(shell which $(CROSS_COMPILE)gcc | wc -l)
