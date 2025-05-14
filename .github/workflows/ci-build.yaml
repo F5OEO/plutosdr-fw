@@ -22,7 +22,7 @@ run-name: Build plutosdr-fw run for tag - PlutoDVB2_${{ inputs.version }}
 jobs:
   build-x86_64:
     # runs-on: self-hosted
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     # environment: plutosdr-fw-ci
     permissions: write-all
     
