@@ -81,6 +81,7 @@ process_ini() {
 	ini_parser $FILE "WLAN"
 	ini_parser $FILE "SYSTEM"
 	ini_parser $FILE "USB_ETHERNET"
+	ini_parser $FILE "TEZUKA"
 
 	rm -f /mnt/msd/SUCCESS_ENV_UPDATE /mnt/msd/FAILED_INVALID_UBOOT_ENV /mnt/msd/CAL_STATUS
 
@@ -105,10 +106,22 @@ process_ini() {
 		echo "netmask_eth2 $netmask_eth2" >> /opt/fw_set.tmp
 		echo "gateway_eth2 $gateway_eth2"  >> /opt/fw_set.tmp
 		
+		echo "lnb_power $lnb_power" >> /opt/fw_set.tmp
+		echo "rf_input $rf_input" >> /opt/fw_set.tmp
+		echo "rf_output $rf_output" >> /opt/fw_set.tmp
+
 		fw_setenv -s /opt/fw_set.tmp
 		rm /opt/fw_set.tmp
 		flash_indication_off
 		touch /mnt/msd/SUCCESS_ENV_UPDATE
+		#switch RF input
+		echo "Switching to rfinput $rf_input" 
+		/root/switch_rfinput.sh $rf_input
+		echo "Switching to rfoutput $rf_outputT" 
+		/root/switch_rfoutput.sh $rf_output
+		#Switch LNB
+		echo "Update lnb $lnb_power" 
+		/root/lnb_config.sh
 		
 	else
 		touch /mnt/msd/FAILED_INVALID_UBOOT_ENV

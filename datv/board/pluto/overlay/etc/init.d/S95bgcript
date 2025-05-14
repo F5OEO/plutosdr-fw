@@ -16,8 +16,9 @@ mkfifo /dev/rx1
 /root/mqtt_route.sh </dev/null 2>/dev/null &
 /root/mqtt_setcall.sh </dev/null 2>/dev/null &
 /root/mqtt_longmynd.sh </dev/null 2>/dev/null &
+/root/lnb_config.sh </dev/null 2>/dev/null
 /root/watchconsoletx.sh </dev/null 2>/dev/null &
-
+/root/watchconsolefreq.sh </dev/null 2>/dev/null &
 
 export HISTFILE="/mnt/jffs2/ash_history"
 
