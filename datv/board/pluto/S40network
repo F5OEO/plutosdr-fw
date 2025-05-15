@@ -37,10 +37,10 @@ create_system_files () {
 	UDC_HANDLE_SUSPEND=`fw_printenv -n udc_handle_suspend 2> /dev/null || echo 0`
 	USB_ETH_MODE=`fw_printenv -n usb_ethernet_mode 2> /dev/null || echo rndis`
 
-	LNB_POWER=`fw_printenv -n lnb_power 2> /dev/null || echo off 
-	RF_INPUT=`fw_printenv -n rf_input 2> /dev/null || echo rx1 
-	RF_OUTPUT=`fw_printenv -n rf_output 2> /dev/null || echo tx1 
-
+	LNB_POWER=`fw_printenv -n lnb_power 2> /dev/null || echo off | tr -cd '[a-zA-Z0-9]._-'`
+	RF_INPUT=`fw_printenv -n rf_input 2> /dev/null || echo rx1 | tr -cd '[a-zA-Z0-9]._-'`
+	RF_OUTPUT=`fw_printenv -n rf_output 2> /dev/null || echo tx1 | tr -cd '[a-zA-Z0-9]._-'`
+	
 	### /etc/udhcpd.conf ###
 	echo "start $IPADDR_HOST" > $UDHCPD_CONF
 	echo "end $IPADDR_HOST" >> $UDHCPD_CONF
